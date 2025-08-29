@@ -1,0 +1,96 @@
+/* Global Reset and Base Styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--color-primary: #203060;
+	--color-secondary: #2A93C5;
+	--color-accent: #FF9D00;
+	--color-bg-light: #f8f9fa;
+	--color-white: #ffffff;
+	--color-black: #000000;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+	line-height: 1.6;
+	color: var(--color-primary);
+	background-color: var(--color-white);
+}
+
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* Typography */
+.section-title {
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 1.36;
+	margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	min-height: 48px;
+}
+
+.btn-primary {
+	background-color: var(--color-primary);
+	color: var(--color-white);
+}
+
+.btn-primary:hover {
+	background-color: #1a284f;
+	transform: translateY(-2px);
+}
+
+.btn-outline {
+	background-color: var(--color-white);
+	color: var(--color-black);
+	border: 1px solid var(--color-black);
+}
+
+.btn-outline:hover {
+	background-color: var(--color-black);
+	color: var(--color-white);
+	transform: translateY(-2px);
+}
+
+/* Reveal utility used by JS */
+section {
+	opacity: 1;
+	transform: none;
+}
+
+/* Responsive shared */
+@media (max-width: 480px) {
+	.section-title {
+		font-size: 28px;
+	}
+	.btn {
+		padding: 10px 20px;
+		font-size: 14px;
+		min-height: 44px;
+	}
+}

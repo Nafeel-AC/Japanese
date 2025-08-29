@@ -1,0 +1,21 @@
+/* Contact Section */
+.contact {
+	padding: 100px 0;
+	background-color: #f8f9fa;
+	text-align: center;
+}
+
+.contact-title {
+	font-size: 36px;
+	font-weight: 700;
+	color: #203060;
+	margin-bottom: 20px;
+}
+
+.contact-subtitle {
+	font-size: 18px;
+	color: #666;
+	margin-bottom: 40px;
+}
+
+.contact-cta { min-width: 250px; }

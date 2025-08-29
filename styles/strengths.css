@@ -1,0 +1,144 @@
+/* Strengths Section */
+.strengths {
+	padding: 100px 0;
+	background-color: #ffffff;
+}
+
+.strengths-header {
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.strengths-title {
+	color: #203060;
+	margin-bottom: 30px;
+}
+
+.strengths-subtitle {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 2.08;
+	color: #203060;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.strengths-content {
+	display: flex;
+	gap: 60px;
+	align-items: flex-start;
+}
+
+.strengths-logo {
+	position: sticky;
+	top: 120px;
+	flex-shrink: 0;
+	width: 300px;
+	text-align: center;
+}
+
+.strengths-logo-title {
+	font-size: 24px;
+	font-weight: 700;
+	color: #203060;
+	margin-bottom: 10px;
+}
+
+.strengths-logo-subtitle {
+	font-size: 16px;
+	font-weight: 700;
+	color: #D9D9D9;
+	letter-spacing: 0.12em;
+	margin-bottom: 20px;
+}
+
+.strengths-logo-main {
+	font-size: 48px;
+	font-weight: 700;
+	color: #203060;
+	margin-bottom: 30px;
+}
+
+.strengths-symbol {
+	width: 64px;
+	height: 76px;
+	margin: 0 auto;
+}
+
+.strengths-list { flex: 1; }
+
+.strength-item {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 60px;
+	padding: 40px;
+	background: #f8f9fa;
+	border-radius: 12px;
+	position: relative;
+}
+
+.strength-item::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 8px;
+	height: 100%;
+	background-color: #203060;
+	border-radius: 4px 0 0 4px;
+}
+
+.strength-number {
+	width: 68px;
+	height: 68px;
+	background-color: #2A93C5;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 40px;
+	font-weight: 700;
+	color: #ffffff;
+	flex-shrink: 0;
+}
+
+.strength-content { flex: 1; }
+
+.strength-title {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 2.08;
+	color: #203060;
+	margin-bottom: 20px;
+}
+
+.strength-description {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #203060;
+}
+
+@media (max-width: 1024px) {
+	.strengths-content {
+		flex-direction: column;
+		gap: 40px;
+	}
+	.strengths-logo {
+		position: static;
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.strength-item {
+		flex-direction: column;
+		gap: 20px;
+		padding: 30px;
+	}
+	.strength-number { align-self: center; }
+}
+
+@media (max-width: 480px) {
+	.strength-title { font-size: 20px; }
+}
