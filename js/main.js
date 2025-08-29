@@ -234,7 +234,7 @@ function initializeApp() {
             transform: translateY(0);
         }
         
-        .hero, .problem-section {
+        .hero, .problem-section, .strengths, .use-cases, .contact {
             opacity: 1;
             transform: none;
         }
