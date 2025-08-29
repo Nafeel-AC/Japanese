@@ -1,7 +1,7 @@
 /* Use Cases Section */
 .use-cases {
 	padding: 100px 0;
-	background-color: #757575;
+	background-color: #F0F0F0;
 }
 
 .use-cases-header {
@@ -17,30 +17,42 @@
 	background-color: #D9D9D9;
 	color: #203060;
 	padding: 8px 16px;
-	border-radius: 20px;
+	border-radius: 0;
 	font-size: 16px;
 	font-weight: 700;
 }
 
-.use-cases-list { display: flex; flex-direction: column; gap: 60px; }
+.use-cases-list { display: flex; flex-direction: column; gap: 140px; }
+/* Ensure clear vertical spacing even if gap is not applied by some engines */
+.use-cases-list .case-item:not(:last-child) { margin-bottom: 140px; }
+.use-cases-list .case-item + .case-item { margin-top: 140px; }
+
 
 .case-item {
 	background: #ffffff;
 	border: 1px solid #203060;
-	border-radius: 12px;
+	border-radius: 0;
 	padding: 40px;
-	max-width: 1062px;
+	max-width: 1400px;
 	margin: 0 auto;
+	overflow: visible;
 }
+
+/* Case 01: make card larger */
+.case-01 { max-width: none !important; padding: 56px; overflow: visible; }
 
 .case-title {
 	font-size: 24px;
 	font-weight: 700;
 	color: #203060;
-	text-align: center;
-	margin-bottom: 40px;
+	text-align: left;
+	margin-bottom: 30px;
+	line-height: 50px;
 }
+.case-title .case-number { font-size: 36px; margin-right: 6px; }
+.case-title .case-title-rest { font-size: 24px; }
 
+/* Generic grid used by Case 02/03 still */
 .case-content {
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
@@ -55,7 +67,7 @@
 	background-color: #D9D9D9;
 	color: #203060;
 	padding: 8px 16px;
-	border-radius: 20px;
+	border-radius: 0;
 	font-size: 16px;
 	font-weight: 700;
 	margin-bottom: 20px;
@@ -73,13 +85,13 @@
 	width: 100%;
 	max-width: 280px;
 	height: auto;
-	border-radius: 8px;
+	border-radius: 0;
 }
 
 .case-support {
 	background-color: #D9E8EF;
 	padding: 40px 20px;
-	border-radius: 40px;
+	border-radius: 0;
 	text-align: center;
 	position: relative;
 	min-height: 254px;
@@ -88,25 +100,115 @@
 	justify-content: center;
 }
 
-.support-label {
-	background-color: #D9E8EF;
-	color: #203060;
-	border: 2px solid #203060;
-}
-
-.case-arrow {
-	font-size: 24px;
-	font-weight: bold;
-	color: #203060;
-	margin-top: 20px;
-}
+.support-label { background-color: #D9E8EF; color: #203060; border: 2px solid #203060; }
+.case-arrow { font-size: 24px; font-weight: bold; color: #203060; margin-top: 20px; }
 
 @media (max-width: 1024px) {
 	.case-content { grid-template-columns: 1fr; gap: 30px; }
 	.case-support { order: -1; }
 }
 
+@media (max-width: 768px) { .case-item { padding: 30px 20px; } .case-title { font-size: 20px; } }
+
+/* ===== Case 01 custom layout ===== */
+.case-01 .case-title { margin-bottom: 20px; text-align: center; }
+
+.case-01-grid {
+	display: grid;
+	grid-template-columns: minmax(260px, 1fr) minmax(300px, 1.1fr) minmax(260px, 1fr);
+	gap: 24px;
+	align-items: start;
+	justify-content: center;
+	justify-items: center;
+}
+
+.case-01-col { position: relative; }
+.case-01-head {
+	color: #203060;
+	font-weight: 700;
+	margin-bottom: 16px;
+}
+
+/* Figma: image case 01 2 & image case 01 are 205x123 */
+.challenge-illustration { width: 205px; height: auto; max-width: 100%; margin: 0 0 0 auto; }
+
+.challenge-pills { list-style: none; display: grid; gap: 14px; }
+.challenge-pills .pill {
+	background: #D9D9D9;
+	color: #203060;
+	border-radius: 40px;
+	padding: 18px 24px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.support-col { text-align: center; }
+/* Figma: support box area ~591x96 inside overall group; keep fluid but cap width */
+.support-box { background: #D9E8EF; border-radius: 40px; padding: 18px 24px; max-width: 591px; }
+.support-list { margin-left: 1.2em; }
+.support-list li { margin: 8px 0; font-weight: 700; color: #203060; }
+
+/* Figma: arrow 231.59 x 254 */
+.case-01-arrow { display: none; width: 231.6px; height: 254px; object-fit: contain; margin: 18px auto 0; opacity: 0.9; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+
+.result-box { display: grid; grid-template-columns: auto; gap: 12px; align-items: center; text-align: center; }
+.result-illustration { width: 205px; height: auto; }
+.case-01 .result-illustration { display: none; }
+.result-text {
+	background: #D9D9D9;
+	border-radius: 40px;
+	padding: 18px 24px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: #203060;
+}
+
+/* Case 01: centered challenge subsection */
+.case-01-challenges { text-align: center; max-width: none; margin: 0 auto; }
+.case-01-challenges .case-01-row { display: grid; grid-template-columns: 240px 1fr; gap: 8px; align-items: center; justify-content: center; }
+.case-01-challenges .challenge-pills { display: grid; gap: 16px; justify-items: center; }
+.case-01-challenges .challenge-pills .pill { background:#D9D9D9; color:#203060; border-radius:1000px; padding:12px 36px; font-size:16px; font-weight:700; line-height:1.4; width: 100%; max-width: 1160px; text-align: left; }
+
 @media (max-width: 768px) {
-	.case-item { padding: 30px 20px; }
-	.case-title { font-size: 20px; }
+	.case-01-challenges .case-01-row { grid-template-columns: 200px 1fr; }
+	.case-01-challenges .challenge-pills { justify-items: center; }
+	.case-01-challenges .challenge-pills .pill { width: 100%; max-width: 720px; }
+}
+
+/* Case 01: support row (separate containers for independent positioning) */
+.case-01-support { text-align: center; max-width: none; margin: 8px auto 0; }
+.case-01-support-arrow-container { text-align: left; margin-left: 20px; margin-top: -40px; }
+.case-01-support-pill-container { text-align: left; margin-right: 40px; flex: 2; }
+.case-01-support { display: flex; flex-direction: row; align-items: center; gap: 20px; }
+.case-01-support .support-box.one-row { background:#D9E8EF; border-radius: 40px; padding: 8px 12px; display: inline-block; width: 100%; max-width: 1400px; text-align: left; margin-left: -60px; }
+.case-01-support .support-list { margin-left: 1.2em; }
+.case-01-support .support-list li { margin: 8px 0; font-weight: 700; color:#203060; }
+.case-01-support-arrow { display: block; width: 231.6px; height: 254px; object-fit: contain; }
+
+@media (max-width: 768px) {
+	.case-01-support .case-01-support-row { grid-template-columns: 160px 1fr; }
+}
+
+/* Case 01: result layout (long pill with image over it) */
+.case-01-result { text-align: center; max-width: none; margin: 8px auto 0; }
+.case-01-result-layout { position: relative; }
+.case-01-result-illustration { width: 150px; height: auto; position: absolute; left: 30px; top: 15px; z-index: 2; }
+.result-pill { background:#D9D9D9; color:#203060; border-radius: 40px; padding: 20px 24px; font-size: 14px; font-weight: 700; line-height: 1.6; text-align: center; width: 100%; max-width: 1400px; margin-left: 20px; }
+
+@media (max-width: 768px) {
+	.case-01-result .case-01-result-row { grid-template-columns: 180px 1fr; }
+}
+
+/* Tighten headings spacing inside Case 01 subsections */
+.case-01-challenges .case-01-head,
+.case-01-support .case-01-head,
+.case-01-result .case-01-head { margin-bottom: 8px; }
+
+/* Keep three columns down to 768px; only then stack */
+@media (max-width: 768px) {
+	.case-01-grid { grid-template-columns: 1fr; }
+	.challenge-illustration, .result-illustration { margin: 0 auto; }
+	.case-01-arrow { width: 150px; height: auto; }
 }
