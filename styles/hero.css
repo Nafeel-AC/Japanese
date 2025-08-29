@@ -5,6 +5,7 @@
 	display: flex;
 	align-items: center;
 	margin-top: 86px; /* For desktop: accounts for header height */
+	margin-bottom: 0;
 	overflow: hidden;
 }
 
