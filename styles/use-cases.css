@@ -96,7 +96,7 @@
 	.case-support { order: -1; }
 }
 
-@media (max-width: 768px) { .case-item { padding: 30px 20px; } .case-title { font-size: 20px; } }
+@media (max-width: 991px) { .case-item { padding: 30px 20px; } .case-title { font-size: 20px; } }
 
 /* ===== Case 01 custom layout ===== */
 .case .case-title { margin-bottom: 20px; text-align: center; }
@@ -176,8 +176,29 @@
     padding-left: 0;
 }
 
-@media (max-width: 768px) {
-	.case-challenges .case-row { grid-template-columns: 200px 1fr; }
+/* Mobile-specific container styling */
+@media (max-width: 991px) {
+    .case-challenges .case-row, .case-support .case-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 15px;
+    }
+    .contain-challenge-pills, .contain-support-pills {
+        width: 100%;
+        margin: 0;
+    }
+    .case-support .support-box.one-row {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+	.case-challenges .case-row, .case-support .case-row { 
+		grid-template-columns: 1fr; 
+		grid-template-rows: auto auto;
+	}
 	.case-challenges .challenge-pills { justify-items: center; }
 	.case-challenges .challenge-pills .pill { width: 100%; max-width: 720px; }
 }
@@ -208,6 +229,14 @@
     max-width: 1400px; 
     text-align: left;
 }
+
+@media (max-width: 991px) {
+    .case-support .support-box.one-row {
+        margin-left: 0;
+        padding: 14px 18px;
+        border-radius: 30px;
+    }
+}
 .case-support .support-list { 
     margin-left: 2.2em;
     padding-left: 0;
@@ -218,8 +247,23 @@
     color: #203060;
 } 
 
-@media (max-width: 768px) {
-	.case-support .case-support-row { grid-template-columns: 160px 1fr; }
+@media (max-width: 991px) {
+	.case-support .case-row { 
+		grid-template-columns: 1fr; 
+		grid-template-rows: auto auto;
+	}
+	.case-support .case-support-arrow-container {
+		order: 2; /* Move arrow to appear second */
+		margin: 20px auto 0;
+		/* transform: rotate(180deg); Flip the arrow to point up instead of down */
+	}
+	.case-support .contain-support-pills {
+		order: 1; /* Show support pills first */
+	}
+	.case-support-arrow {
+		width: 120px;
+		height: auto;
+	}
 }
 
 /* Case 01: result layout (long pill with image over it) */
@@ -228,8 +272,21 @@
 .case-result-illustration { width: 150px; height: auto; position: absolute; left: 30px; top: 15px; z-index: 2; }
 .result-pill { background:#D9D9D9; color:#203060; border-radius: 40px; padding: 20px 24px; font-size: 14px; font-weight: 700; line-height: 1.6; text-align: center; width: 100%; max-width: 1400px; margin-left: 20px; }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+	/* .case-result {
+		margin-top: 20px;
+	} */
+	.result-pill {
+		margin-top: 40px;
+		margin-left: 0;
+	}
 	.case-result .case-result-row { grid-template-columns: 180px 1fr; }
+	.case-result-illustration {
+		left: 28%;
+		top: -75px;
+		width: 170px;
+		height: auto;
+	}
 }
 
 /* Tighten headings spacing inside Case 01 subsections */
@@ -237,9 +294,10 @@
 .case-support .case-head,
 .case-result .case-head { margin-bottom: 8px; }
 
-/* Keep three columns down to 768px; only then stack */
-@media (max-width: 768px) {
+/* Keep three columns down to 991px; only then stack */
+@media (max-width: 991px) {
 	.case-grid { grid-template-columns: 1fr; }
-	.challenge-illustration, .result-illustration { margin: 0 auto; }
+	.challenge-illustration { display: none; }
+	.result-illustration { margin: 0 auto; }
 	.case-arrow { width: 150px; height: auto; }
 }
