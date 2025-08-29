@@ -62,12 +62,11 @@ export function UseCases() {
                         
                         <div class="case-challenges">
                         <div class="case-row">
-                            <img src="images/case01-challenge.png" alt="課題イラスト" class="challenge-illustration" />
+                            <img src="images/case02-challenge.png" alt="課題イラスト" class="challenge-illustration" />
                         <div class="contain-challenge-pills">
                             <div class="case-head">課題</div>
                             <div class="challenge-pills">
-                                <div class="pill">買収まではうまくいったが、M&A後に何をすればよいか<br>分からず、事業成長が停滞していた。</div>
-                                <div class="pill">仲介会社からの紹介に限界を感じ、希望条件に合う案件と出会えなかった。</div>
+                                <div class="pill">買収まではうまくいったが、M&A後に何をすればよいか 分からず、事業成長が停滞していた。</div>
                             </div>
                         </div>
                     </div>
@@ -95,7 +94,7 @@ export function UseCases() {
 
                         <div class="case-result">
                             <div class="case-result-layout">
-                                <img src="images/case01-result.png" alt="Case 02 Result" class="case-result-illustration" />
+                                <img src="images/case02-result.png" alt="Case 02 Result" class="case-result-illustration" />
                                 <div class="result-pill">
                                     新規事業が2ヶ月でローンチ、営業成果も改善。<br>組織の士気向上と定着率アップにも貢献。
                                 </div>
@@ -109,12 +108,11 @@ export function UseCases() {
                         
                         <div class="case-challenges">
                         <div class="case-row">
-                            <img src="images/case01-challenge.png" alt="課題イラスト" class="challenge-illustration" />
+                            <img src="images/case03-challenge.png" alt="課題イラスト" class="challenge-illustration" />
                         <div class="contain-challenge-pills">
                             <div class="case-head">課題</div>
                             <div class="challenge-pills">
                                 <div class="pill">仲介会社からの紹介に限界を感じ、希望条件に合う案件と出会えなかった。</div>
-                                <div class="pill">独自ソーシング戦略を策定し、ターゲットリストの作成が必要だった。</div>
                             </div>
                         </div>
                     </div>
@@ -142,7 +140,7 @@ export function UseCases() {
 
                         <div class="case-result">
                             <div class="case-result-layout">
-                                <img src="images/case01-result.png" alt="Case 03 Result" class="case-result-illustration" />
+                                <img src="images/case02-result.png" alt="Case 03 Result" class="case-result-illustration" />
                                 <div class="result-pill">
                                     3ヶ月で6社との面談機会を獲得し、候補企業との実質的な交渉フェーズへ。<br>社内からの評価も高まり、経営陣主導のM&A体制が定着。
                                 </div>
