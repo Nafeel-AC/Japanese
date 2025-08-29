@@ -19,7 +19,7 @@ export function UseCases() {
                         <div class="contain-challenge-pills">
                             <div class="case-head">課題</div>
                             <div class="challenge-pills">
-                                <div class="pill">M&Aによる非連続成長を検討していたが、</br>社内に専任担当者がいなかった。</div>
+                                <div class="pill">M&Aによる非連続成長を検討していたが、社内に専任担当者がいなかった。</div>
                                 <div class="pill">仲介会社から紹介される案件も少なく、</br>進め方も不明瞭だった。</div>
                             </div>
                         </div>
