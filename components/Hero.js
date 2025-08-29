@@ -4,6 +4,10 @@ export function Hero() {
             <div class="hero-background">
                 <img src="images/Hero.png" alt="Hero Background" class="hero-bg">
                 <div class="hero-overlay"></div>
+                <!-- Overlay Images -->
+                <img src="images/Polygon 3.png" alt="Polygon 3" class="hero-overlay-image polygon-3">
+                <img src="images/Polygon 4.png" alt="Polygon 4" class="hero-overlay-image polygon-4">
+                <img src="images/Rectangle 39.png" alt="Rectangle 39" class="hero-overlay-image rectangle-39">
             </div>
             <div class="container">
                 <div class="hero-content">
