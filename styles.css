@@ -1,0 +1,656 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+    line-height: 1.6;
+    color: #203060;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.36;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 48px;
+}
+
+.btn-primary {
+    background-color: #203060;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #1a284f;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.btn-outline:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Header */
+.header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-img {
+    height: 42px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 48px;
+}
+
+.nav-link {
+    color: #203060;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #2A93C5;
+}
+
+.contact-btn {
+    min-width: 184px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 574px;
+    display: flex;
+    align-items: center;
+    margin-top: 86px;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(42, 147, 197, 0.72) 0%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.hero-content {
+    text-align: center;
+    color: #ffffff;
+    max-width: 826px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.hero-cta {
+    min-width: 230px;
+}
+
+/* Worries Section */
+.worries {
+    position: relative;
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.worries-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.worries-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+}
+
+.worries-title {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #203060;
+}
+
+.worries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.worry-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.worry-item:hover {
+    transform: translateY(-5px);
+}
+
+.worry-checkbox {
+    width: 18px;
+    height: 18px;
+    background-color: #FF9D00;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.checkbox-icon {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.worry-text {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.36;
+    color: #203060;
+}
+
+/* Strengths Section */
+.strengths {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.strengths-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.strengths-title {
+    color: #203060;
+    margin-bottom: 30px;
+}
+
+.strengths-subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 2.08;
+    color: #203060;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.strengths-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.strengths-logo {
+    position: sticky;
+    top: 120px;
+    flex-shrink: 0;
+    width: 300px;
+    text-align: center;
+}
+
+.strengths-logo-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #203060;
+    margin-bottom: 10px;
+}
+
+.strengths-logo-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #D9D9D9;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+}
+
+.strengths-logo-main {
+    font-size: 48px;
+    font-weight: 700;
+    color: #203060;
+    margin-bottom: 30px;
+}
+
+.strengths-symbol {
+    width: 64px;
+    height: 76px;
+    margin: 0 auto;
+}
+
+.strengths-list {
+    flex: 1;
+}
+
+.strength-item {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    position: relative;
+}
+
+.strength-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background-color: #203060;
+    border-radius: 4px 0 0 4px;
+}
+
+.strength-number {
+    width: 68px;
+    height: 68px;
+    background-color: #2A93C5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.strength-content {
+    flex: 1;
+}
+
+.strength-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 2.08;
+    color: #203060;
+    margin-bottom: 20px;
+}
+
+.strength-description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #203060;
+}
+
+/* Use Cases Section */
+.use-cases {
+    padding: 100px 0;
+    background-color: #757575;
+}
+
+.use-cases-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.use-cases-title {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.use-cases-badge {
+    display: inline-block;
+    background-color: #D9D9D9;
+    color: #203060;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.use-cases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.case-item {
+    background: #ffffff;
+    border: 1px solid #203060;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 1062px;
+    margin: 0 auto;
+}
+
+.case-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #203060;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.case-content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.case-challenge,
+.case-result {
+    text-align: center;
+}
+
+.case-label {
+    display: inline-block;
+    background-color: #D9D9D9;
+    color: #203060;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.case-text {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.36;
+    color: #203060;
+    margin-bottom: 20px;
+}
+
+.case-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.case-support {
+    background-color: #D9E8EF;
+    padding: 40px 20px;
+    border-radius: 40px;
+    text-align: center;
+    position: relative;
+    min-height: 254px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.support-label {
+    background-color: #D9E8EF;
+    color: #203060;
+    border: 2px solid #203060;
+}
+
+.case-arrow {
+    font-size: 24px;
+    font-weight: bold;
+    color: #203060;
+    margin-top: 20px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #203060;
+    margin-bottom: 20px;
+}
+
+.contact-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact-cta {
+    min-width: 250px;
+}
+
+/* Footer */
+.footer {
+    background-color: #203060;
+    color: #ffffff;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.footer-logo-img {
+    height: 42px;
+    width: auto;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #2A93C5;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-title {
+        font-size: 40px;
+    }
+    
+    .strengths-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .strengths-logo {
+        position: static;
+        width: 100%;
+    }
+    
+    .case-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .case-support {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .nav-menu {
+        gap: 30px;
+    }
+    
+    .hero {
+        height: auto;
+        min-height: 500px;
+        padding: 60px 0;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    
+    .worries-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .worry-item {
+        padding: 20px;
+    }
+    
+    .strength-item {
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px;
+    }
+    
+    .strength-number {
+        align-self: center;
+    }
+    
+    .case-item {
+        padding: 30px 20px;
+    }
+    
+    .case-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-height: 44px;
+    }
+    
+    .worry-text {
+        font-size: 18px;
+    }
+    
+    .strength-title {
+        font-size: 20px;
+    }
+}

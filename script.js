@@ -1,0 +1,311 @@
+// Smooth scrolling for navigation links
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for anchor links
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+        } else {
+            header.style.backgroundColor = '#ffffff';
+            header.style.backdropFilter = 'none';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.worry-item, .strength-item, .case-item');
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+
+    // Contact button functionality
+    const contactButtons = document.querySelectorAll('.btn-primary');
+    contactButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // You can replace this with your actual contact form logic
+            alert('お問い合わせフォームが開きます。実際の実装では、モーダルやフォームページに遷移してください。');
+        });
+    });
+
+    // Worry items hover effect enhancement
+    const worryItems = document.querySelectorAll('.worry-item');
+    worryItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0px 8px 20px rgba(0, 0, 0, 0.3)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
+        });
+    });
+
+    // Strength items counter animation
+    const strengthNumbers = document.querySelectorAll('.strength-number');
+    strengthNumbers.forEach(number => {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumber(number);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(number);
+    });
+
+    function animateNumber(element) {
+        const targetNumber = parseInt(element.textContent);
+        let currentNumber = 0;
+        const increment = targetNumber / 20;
+        
+        const timer = setInterval(() => {
+            currentNumber += increment;
+            if (currentNumber >= targetNumber) {
+                currentNumber = targetNumber;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(currentNumber);
+        }, 50);
+    }
+
+    // Case study cards interaction
+    const caseItems = document.querySelectorAll('.case-item');
+    caseItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.02)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+
+    // Parallax effect for hero section
+    const heroBackground = document.querySelector('.hero-background');
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        heroBackground.style.transform = `translateY(${rate}px)`;
+    });
+
+    // Mobile menu toggle (for responsive design)
+    const mobileMenuToggle = document.createElement('button');
+    mobileMenuToggle.className = 'mobile-menu-toggle';
+    mobileMenuToggle.innerHTML = '☰';
+    mobileMenuToggle.style.display = 'none';
+    
+    const navMenu = document.querySelector('.nav-menu');
+    const headerContent = document.querySelector('.header-content');
+    
+    // Insert mobile menu toggle before nav menu
+    headerContent.insertBefore(mobileMenuToggle, navMenu);
+    
+    mobileMenuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('mobile-active');
+        this.innerHTML = navMenu.classList.contains('mobile-active') ? '✕' : '☰';
+    });
+
+    // Hide mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!header.contains(e.target)) {
+            navMenu.classList.remove('mobile-active');
+            mobileMenuToggle.innerHTML = '☰';
+        }
+    });
+
+    // Responsive design adjustments
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            mobileMenuToggle.style.display = 'block';
+            navMenu.classList.add('mobile-nav');
+        } else {
+            mobileMenuToggle.style.display = 'none';
+            navMenu.classList.remove('mobile-nav', 'mobile-active');
+        }
+    }
+
+    // Initial call and event listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Add loading animation for images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.5s ease';
+    });
+
+    // Form validation for contact forms (if you add them later)
+    function validateForm(form) {
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                isValid = false;
+            } else {
+                input.classList.remove('error');
+            }
+        });
+        
+        return isValid;
+    }
+
+    // Add CSS for mobile menu
+    const mobileMenuCSS = `
+        @media (max-width: 768px) {
+            .mobile-nav {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .mobile-nav.mobile-active {
+                transform: translateY(0);
+            }
+            
+            .mobile-menu-toggle {
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #203060;
+                cursor: pointer;
+                padding: 5px;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+            
+            .mobile-menu-toggle:hover {
+                background-color: rgba(32, 48, 96, 0.1);
+            }
+        }
+    `;
+    
+    const style = document.createElement('style');
+    style.textContent = mobileMenuCSS;
+    document.head.appendChild(style);
+});
+
+// Performance optimization: Lazy loading for images
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Smooth reveal animation for sections
+function revealOnScroll() {
+    const sections = document.querySelectorAll('section');
+    const windowHeight = window.innerHeight;
+    
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const sectionVisible = 150;
+        
+        if (sectionTop < windowHeight - sectionVisible) {
+            section.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// Add CSS for reveal animation
+const revealCSS = `
+    section {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    section.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .hero {
+        opacity: 1;
+        transform: none;
+    }
+`;
+
+const revealStyle = document.createElement('style');
+revealStyle.textContent = revealCSS;
+document.head.appendChild(revealStyle);
+
+// Initialize reveal animation
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        revealOnScroll();
+    }, 100);
+});
