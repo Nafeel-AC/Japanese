@@ -86,34 +86,26 @@ function initializeApp() {
 
 
 
-    // Strength items counter animation
+    // Strength numbers should remain static - no animation
     const strengthNumbers = document.querySelectorAll('.strength-number');
+    // Ensure numbers always show their correct value from data-number attribute
     strengthNumbers.forEach(number => {
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateNumber(number);
-                }
-            });
-        }, { threshold: 0.5 });
+        // Store original number
+        const originalNumber = number.getAttribute('data-number');
 
-        observer.observe(number);
-    });
+        // Make sure the number is always showing the correct value
+        number.textContent = originalNumber;
 
-    function animateNumber(element) {
-        const targetNumber = parseInt(element.textContent);
-        let currentNumber = 0;
-        const increment = targetNumber / 20;
-
-        const timer = setInterval(() => {
-            currentNumber += increment;
-            if (currentNumber >= targetNumber) {
-                currentNumber = targetNumber;
-                clearInterval(timer);
+        // Reset to original number if it somehow changes
+        const observer = new MutationObserver(() => {
+            if (number.textContent !== originalNumber) {
+                number.textContent = originalNumber;
             }
-            element.textContent = Math.floor(currentNumber);
-        }, 50);
-    }
+        });
+
+        // Observe changes to the number content
+        observer.observe(number, { childList: true, characterData: true, subtree: true });
+    });
 
     // Case study cards interaction
     const caseItems = document.querySelectorAll('.case-item');

@@ -1,30 +1,59 @@
 /* Strengths Section - Mobile Styles */
 /* This file contains mobile-specific styles that override desktop styles */
 
-@media (max-width: 768px) {
-    /* Mobile Layout Adjustments */
+@media (max-width: 991px) {
+    /* Mobile Layout Adjustments with higher specificity */
     .strengths-row {
         flex-direction: column;
         gap: 30px;
         margin-bottom: 30px;
     }
     
+    /* Strength item wrapper for mobile */
+    .strength-item-wrapper {
+        position: relative;
+        margin-bottom: 40px;
+    }
+    
+    /* Style for the outer number that shows in mobile */
+    .strength-number-outer {
+        display: flex;
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+        background-color: #2A93C5;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-weight: 700;
+        position: absolute;
+        top: 14%;
+        left: 15px;
+        transform: translateY(-50%);
+        z-index: 10;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Hide the inner number in mobile view */
+    .strength-number-inner {
+        display: none;
+    }
+    
     .strength-item {
         flex-direction: row; /* Keep horizontal layout like desktop */
         height: auto;
         min-height: 180px;
-        padding: 25px 20px;
-        border-radius: 0 12px 12px 0; /* Keep left-side cut like desktop */
-        margin: 0; /* Remove side margins to extend to edges */
-        left: 0; /* Keep left positioning like desktop */
-        right: 0;
-        padding-left: 20px;
-        padding-right: 20px;
-        background-image: url('../images/mobile.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        padding: 30px 20px;
+        border-radius: 0; /* Remove border radius for clip-path */
+        margin: 0; /* No margin since wrapper provides spacing */
+        width: 100%; /* Full width */
+        background-color: #203060; /* Blue background color */
         position: relative;
+        overflow: hidden; /* Keep the clipped content hidden */
+        clip-path: polygon(0 14%, 100% 0%, 100% 85%, 0% 100%); /* Slanted background */
+        display: flex;
+        align-items: center;
     }
     
     .strength-background {
@@ -35,28 +64,31 @@
         display: none; /* Hide the original image since we're using CSS background */
     }
     
+    /* This is kept for backward compatibility but not used anymore */
     .strength-number {
-        width: 60px;
-        height: 60px;
-        font-size: 32px;
-        margin-right: 20px;
-        flex-shrink: 0;
-        background-color: #2A93C5;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffffff;
-        font-weight: 700;
+        display: none;
     }
     
     .strength-content {
         flex: 1;
-        text-align: center; /* Center text on mobile */
+        text-align: left; /* Left align text on mobile */
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        padding: 10px 25px 10px 90px; /* Increased padding to account for slanted shape */
+        position: relative;
+        z-index: 1;
+        /* No rotation - keep text planar */
+    }
+    
+    .strength-item-inner-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* No rotation - keep content planar */
     }
     
     .strength-title {
@@ -133,13 +165,19 @@
     .strength-item {
         padding: 20px 15px;
         min-height: 160px;
+        width: 100%; /* Full width */
+        clip-path: polygon(0 12%, 100% 0%, 100% 87%, 0% 100%); /* Slightly more pronounced slant */
     }
     
-    .strength-number {
+    .strength-number-outer {
         width: 50px;
         height: 50px;
         font-size: 28px;
-        margin-right: 15px;
+        left: 10px;
+    }
+    
+    .strength-content {
+        padding: 10px 20px 10px 70px; /* Adjusted padding for smaller screens */
     }
     
     .strength-title {

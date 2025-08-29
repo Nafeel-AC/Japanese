@@ -1,3 +1,50 @@
+/* Updated Strength Item Styles */
+.strengths {
+    position: relative;
+}
+.strength-item-wrapper {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.strength-number-outer {
+    display: none; /* Hidden in desktop view */
+    width: 68px;
+    height: 68px;
+    background-color: #2A93C5;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.strength-number-inner {
+    left: 19px;
+    width: 68px;
+    height: 68px;
+    background-color: #2A93C5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    margin-right: 20px;
+}
+
+/* Include the rest of the original strength styles */
 /* Strengths Section */
 .strengths {
 	padding: 100px 0;
@@ -45,6 +92,8 @@
 	width: 300px;
 	text-align: center;
 	margin: 0 auto 20px auto;
+    position: absolute;
+    right: 10px;
 }
 
 .strengths-logo-title {
@@ -125,19 +174,7 @@
 }
 
 .strength-number {
-	width: 68px;
-	height: 68px;
-	background-color: #2A93C5;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 40px;
-	font-weight: 700;
-	color: #ffffff;
-	flex-shrink: 0;
-	position: relative;
-	z-index: 2; /* Ensure it stays on top */
+	display: none; /* Hide the old number element */
 }
 
 .strength-content { 
