@@ -45,17 +45,19 @@ export function Strengths() {
             
             <!-- Second Strength Item with Gap -->
             <div class="strength-item strength-item-2">
-                <div class="strength-background">
-                    <img src="images/Rectangle 18.png" alt="Strength 2 Background" class="strength-bg">
-                </div>
-                <div class="strength-number">2</div>
-                <div class="strength-content">
-                    <h3 class="strength-title">独自ネットワーク × 仲介連携によるソーシング力</h3>
-                    <p class="strength-description">
-                        独自リサーチによる候補企業のリストアップに加え、<br>
-                        多数の仲介会社との良好な関係性・情報連携ノウハウを保有。<br>
-                        「案件が出てこない」「希望に合う候補がない」という課題を、正面から解決します。
-                    </p>
+                <div class="strength-item-inner-container" > 
+                    <div class="strength-background">
+                        <img src="images/Rectangle 18.png" alt="Strength 2 Background" class="strength-bg">
+                    </div>
+                    <div class="strength-number">2</div>
+                    <div class="strength-content">
+                        <h3 class="strength-title">独自ネットワーク × 仲介連携によるソーシング力</h3>
+                        <p class="strength-description">
+                            独自リサーチによる候補企業のリストアップに加え、<br>
+                            多数の仲介会社との良好な関係性・情報連携ノウハウを保有。<br>
+                            「案件が出てこない」「希望に合う候補がない」という課題を、正面から解決します。
+                        </p>
+                    </div>
                 </div>
             </div>
             
