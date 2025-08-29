@@ -4,7 +4,7 @@ export function UseCases() {
             <div class="container">
                 <div class="use-cases-header">
                     <p class="use-cases-badge">USE CASE</p>
-                    <h2 class="section-title use-cases-title">事例</h2>
+                    <h2 class=" use-cases-title">事例</h2>
                 </div>
                 
                 <div class="use-cases-list">

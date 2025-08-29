@@ -10,15 +10,25 @@
 	position: relative;
 }
 
-.use-cases-title { color: #ffffff; margin-bottom: 20px; }
+
 
 .use-cases-badge {
-	display: inline-block;
+	display: block;
 	/* background-color: #D9D9D9; */
 	color: #D9D9D9;
 	padding: 8px 16px;
 	border-radius: 0;
 	font-size: 16px;
+	font-weight: 700;
+}
+
+.use-cases-title { 
+	color: #ffffff;
+	display: block;
+	/* background-color: #D9D9D9; */
+	padding: 8px 16px;
+	border-radius: 0;
+	font-size: 52px;
 	font-weight: 700;
 }
 
