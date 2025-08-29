@@ -21,6 +21,12 @@
 	width: auto;
 }
 
+.mobile-logo {
+    display: none;
+    height: 39px;
+    width: auto;
+}
+
 .spacer {
 	flex-grow: 0.5;
 }
@@ -129,7 +135,7 @@
     display: none; /* Hide the button as per Figma design */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
 	.header-content {
 		flex-direction: row;
 		gap: 20px;
@@ -141,6 +147,12 @@
 		display: none;
 	}
 	.mobile-menu-toggle {
+		display: block;
+	}
+	.desktop-logo {
+		display: none;
+	}
+	.mobile-logo {
 		display: block;
 	}
 }

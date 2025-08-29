@@ -9,8 +9,15 @@ export function Hero() {
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1 class="hero-title">
-                            戦略から実行まで、M&Aを加速する<br>
-                            M&Aサクセスパートナーズ
+                            <div>
+                                戦略から実行まで、
+                            </div>
+                            <div>
+                                M&Aを加速する
+                            </div>
+                            <div>
+                                M&Aサクセスパートナーズ
+                            </div>
                         </h1>
                         <p class="hero-subtitle">
                             案件探索から統合支援まで、<br>

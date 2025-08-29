@@ -4,7 +4,8 @@ export function Header() {
             <div class="container">
                 <div class="header-content">
                     <div class="logo">
-                        <img src="images/masp-logo.png" alt="MASPメインロゴ" class="logo-img">
+                        <img src="images/masp-logo.png" alt="MASPメインロゴ" class="logo-img desktop-logo">
+                        <img src="images/masp-symbol.png" alt="MASPシンボルロゴ" class="logo-img mobile-logo">
                     </div>
                     <div class="spacer"></div>
                     <nav class="nav-menu">
