@@ -1,13 +1,13 @@
 import { App } from '../components/App.js';
 
 // Initialize the app when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Render the main app
     const appContainer = document.getElementById('app');
     if (appContainer) {
         appContainer.innerHTML = App();
     }
-    
+
     // Initialize all the functionality after components are rendered
     initializeApp();
 });
@@ -16,15 +16,15 @@ function initializeApp() {
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 const headerHeight = document.querySelector('.header').offsetHeight;
                 const targetPosition = targetSection.offsetTop - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -36,10 +36,10 @@ function initializeApp() {
     // Header scroll effect
     const header = document.querySelector('.header');
     let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         if (scrollTop > 100) {
             header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
             header.style.backdropFilter = 'blur(10px)';
@@ -47,7 +47,7 @@ function initializeApp() {
             header.style.backgroundColor = '#ffffff';
             header.style.backdropFilter = 'none';
         }
-        
+
         lastScrollTop = scrollTop;
     });
 
@@ -57,7 +57,7 @@ function initializeApp() {
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
@@ -78,7 +78,7 @@ function initializeApp() {
     // Contact button functionality
     const contactButtons = document.querySelectorAll('.btn-primary');
     contactButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             // You can replace this with your actual contact form logic
             alert('お問い合わせフォームが開きます。実際の実装では、モーダルやフォームページに遷移してください。');
         });
@@ -87,11 +87,11 @@ function initializeApp() {
     // Worry items hover effect enhancement
     const worryItems = document.querySelectorAll('.worry-item');
     worryItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
+        item.addEventListener('mouseenter', function () {
             this.style.boxShadow = '0px 8px 20px rgba(0, 0, 0, 0.3)';
         });
-        
-        item.addEventListener('mouseleave', function() {
+
+        item.addEventListener('mouseleave', function () {
             this.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
         });
     });
@@ -99,14 +99,14 @@ function initializeApp() {
     // Strength items counter animation
     const strengthNumbers = document.querySelectorAll('.strength-number');
     strengthNumbers.forEach(number => {
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     animateNumber(number);
                 }
             });
         }, { threshold: 0.5 });
-        
+
         observer.observe(number);
     });
 
@@ -114,7 +114,7 @@ function initializeApp() {
         const targetNumber = parseInt(element.textContent);
         let currentNumber = 0;
         const increment = targetNumber / 20;
-        
+
         const timer = setInterval(() => {
             currentNumber += increment;
             if (currentNumber >= targetNumber) {
@@ -128,12 +128,12 @@ function initializeApp() {
     // Case study cards interaction
     const caseItems = document.querySelectorAll('.case-item');
     caseItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
+        item.addEventListener('mouseenter', function () {
             this.style.transform = 'scale(1.02)';
             this.style.transition = 'transform 0.3s ease';
         });
-        
-        item.addEventListener('mouseleave', function() {
+
+        item.addEventListener('mouseleave', function () {
             this.style.transform = 'scale(1)';
         });
     });
@@ -141,9 +141,9 @@ function initializeApp() {
     // Parallax effect for hero section
     const heroBackground = document.querySelector('.hero-background');
     if (heroBackground) {
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
+            const rate = scrolled * -0.1;
             heroBackground.style.transform = `translateY(${rate}px)`;
         });
     }
@@ -152,107 +152,77 @@ function initializeApp() {
     const mobileMenuToggle = document.createElement('button');
     mobileMenuToggle.className = 'mobile-menu-toggle';
     mobileMenuToggle.innerHTML = '☰';
-    mobileMenuToggle.style.display = 'none';
-    
-    const navMenu = document.querySelector('.nav-menu');
+
+    // Create mobile overlay container
+    const mobileOverlay = document.createElement('div');
+    mobileOverlay.className = 'mobile-overlay';
+
     const headerContent = document.querySelector('.header-content');
-    
-    if (navMenu && headerContent) {
-        // Insert mobile menu toggle before nav menu
-        headerContent.insertBefore(mobileMenuToggle, navMenu);
-        
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('mobile-active');
-            this.innerHTML = navMenu.classList.contains('mobile-active') ? '✕' : '☰';
-        });
+    const navMenu = document.querySelector('.nav-menu');
+    const contactBtn = document.querySelector('.contact-btn');
 
-        // Hide mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!header.contains(e.target)) {
-                navMenu.classList.remove('mobile-active');
-                mobileMenuToggle.innerHTML = '☰';
-            }
-        });
+    if (headerContent && navMenu) {
+        // Add hamburger button to header
+        headerContent.appendChild(mobileMenuToggle);
 
-        // Responsive design adjustments
-        function handleResize() {
-            if (window.innerWidth <= 768) {
-                mobileMenuToggle.style.display = 'block';
-                navMenu.classList.add('mobile-nav');
-            } else {
-                mobileMenuToggle.style.display = 'none';
-                navMenu.classList.remove('mobile-nav', 'mobile-active');
-            }
+        // Clone nav and contact button for overlay
+        const navMenuClone = navMenu.cloneNode(true);
+        const contactBtnClone = contactBtn ? contactBtn.cloneNode(true) : null;
+
+        // Add cloned elements to overlay
+        mobileOverlay.appendChild(navMenuClone);
+        if (contactBtnClone) {
+            mobileOverlay.appendChild(contactBtnClone);
         }
 
-        // Initial call and event listener
-        handleResize();
-        window.addEventListener('resize', handleResize);
+        // Add overlay to body
+        document.body.appendChild(mobileOverlay);
+
+        // Create close button for overlay
+        const closeButton = document.createElement('button');
+        closeButton.className = 'mobile-close-btn';
+        closeButton.innerHTML = '✕';
+        mobileOverlay.appendChild(closeButton);
+
+        // Toggle overlay when hamburger is clicked
+        mobileMenuToggle.addEventListener('click', function () {
+            mobileOverlay.classList.add('active');
+        });
+
+        // Close overlay when close button is clicked
+        closeButton.addEventListener('click', function () {
+            mobileOverlay.classList.remove('active');
+        });
+
+        // Close overlay when a nav link is clicked
+        const overlayLinks = mobileOverlay.querySelectorAll('.nav-link');
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                mobileOverlay.classList.remove('active');
+            });
+        });
     }
 
     // Add loading animation for images
     const images = document.querySelectorAll('img');
     images.forEach(img => {
-        img.addEventListener('load', function() {
+        img.addEventListener('load', function () {
             this.style.opacity = '1';
         });
-        
+
         img.style.opacity = '0';
         img.style.transition = 'opacity 0.5s ease';
     });
-
-    // Add CSS for mobile menu
-    const mobileMenuCSS = `
-        @media (max-width: 768px) {
-            .mobile-nav {
-                position: fixed;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 20px;
-                gap: 20px;
-                transform: translateY(-100%);
-                transition: transform 0.3s ease;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            }
-            
-            .mobile-nav.mobile-active {
-                transform: translateY(0);
-            }
-            
-            .mobile-menu-toggle {
-                background: none;
-                border: none;
-                font-size: 24px;
-                color: #203060;
-                cursor: pointer;
-                padding: 5px;
-                border-radius: 4px;
-                transition: background-color 0.3s ease;
-            }
-            
-            .mobile-menu-toggle:hover {
-                background-color: rgba(32, 48, 96, 0.1);
-            }
-        }
-    `;
-    
-    const style = document.createElement('style');
-    style.textContent = mobileMenuCSS;
-    document.head.appendChild(style);
 
     // Smooth reveal animation for sections
     function revealOnScroll() {
         const sections = document.querySelectorAll('section');
         const windowHeight = window.innerHeight;
-        
+
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
             const sectionVisible = 150;
-            
+
             if (sectionTop < windowHeight - sectionVisible) {
                 section.classList.add('active');
             }

@@ -21,17 +21,25 @@
 	width: auto;
 }
 
+.spacer {
+	flex-grow: 0.5;
+}
 .nav-menu {
 	display: flex;
-	gap: 48px;
+	gap: 30px;
 }
 
 .nav-link {
 	color: #203060;
+	font-family: 'Alexandria', sans-serif;
 	text-decoration: none;
-	font-size: 16px;
-	font-weight: 400;
+	font-size: 15px;
+	font-weight: 450;
 	transition: color 0.3s ease;
+}
+
+.nav-link.mobile-only {
+    display: none;
 }
 
 .nav-link:hover {
@@ -40,14 +48,99 @@
 
 .contact-btn {
 	min-width: 184px;
+	font-family: 'Noto Sans JP', sans-serif; /* Keep Japanese text in appropriate font */
+}
+
+/* Hamburger Menu */
+/* Hamburger Menu */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #203060;
+    cursor: pointer;
+    z-index: 2000;
+    position: relative;
+}
+
+/* Full-screen overlay menu */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #203060;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 109px 0 0 68px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Close button in the overlay */
+.mobile-close-btn {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    width: 61px;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-overlay .nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 48px;
+    width: 160px;
+}
+
+.mobile-overlay .nav-link {
+    font-family: 'Alexandria', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.mobile-overlay .contact-btn {
+    display: none; /* Hide the button as per Figma design */
 }
 
 @media (max-width: 768px) {
 	.header-content {
-		flex-direction: column;
+		flex-direction: row;
 		gap: 20px;
 	}
 	.nav-menu {
-		gap: 30px;
+		display: none;
+	}
+	.contact-btn {
+		display: none;
+	}
+	.mobile-menu-toggle {
+		display: block;
 	}
 }
