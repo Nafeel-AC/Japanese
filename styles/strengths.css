@@ -11,16 +11,28 @@
 
 .strengths-title {
 	color: #203060;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 100px;
 	margin-bottom: 30px;
+	white-space: nowrap;
+}
+
+.strengths-underline {
+	width: 548px;
+	height: 8px;
+	background-color: #2A93C5;
+	margin: 0 auto 30px auto;
 }
 
 .strengths-subtitle {
 	font-size: 24px;
 	font-weight: 700;
-	line-height: 2.08;
+	line-height: 50px;
 	color: #203060;
 	max-width: 800px;
 	margin: 0 auto;
+	white-space: nowrap;
 }
 
 .strengths-content {
@@ -30,8 +42,8 @@
 }
 
 .strengths-logo {
-	position: sticky;
-	top: 120px;
+	position: relative; /* Change to relative positioning */
+	left: -100px; /* Use left property instead of margin */
 	flex-shrink: 0;
 	width: 300px;
 	text-align: center;
@@ -53,10 +65,19 @@
 }
 
 .strengths-logo-main {
-	font-size: 48px;
+	font-size: 64px;
 	font-weight: 700;
 	color: #203060;
 	margin-bottom: 30px;
+	line-height: 1;
+}
+
+.strengths-logo-main span:nth-child(2) {
+	font-size: 48px;
+}
+
+.strengths-logo-main span:nth-child(4) {
+	font-size: 48px;
 }
 
 .strengths-symbol {
@@ -67,25 +88,49 @@
 
 .strengths-list { flex: 1; }
 
+/* New Row Layout for Strength Item and Logo */
+.strengths-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 60px;
+	width: 100%;
+	margin-bottom: 40px; /* Add gap between first strip and second strip */
+}
+
 .strength-item {
 	display: flex;
 	gap: 40px;
-	margin-bottom: 60px;
 	padding: 40px;
-	background: #f8f9fa;
-	border-radius: 12px;
+	border-radius: 0 12px 12px 0; /* Remove left side rounded corners */
 	position: relative;
+	height: 241px;
+	align-items: center;
+	flex: 1; /* Take remaining space */
+	overflow: hidden;
+	margin-left: 0; /* Ensure it starts from the left edge */
+	left: 0; /* Position to the left side */
+	/* Extend to full left edge since it's outside container */
+	position: relative;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding-left: 60px; /* Add left padding for content spacing */
+	padding-right: 60px; /* Add right padding for content spacing */
 }
 
-.strength-item::before {
-	content: '';
+.strength-background {
 	position: absolute;
-	left: 0;
 	top: 0;
-	width: 8px;
+	left: 0;
+	width: 100%;
 	height: 100%;
-	background-color: #203060;
-	border-radius: 4px 0 0 4px;
+	z-index: -1;
+}
+
+.strength-bg {
+	width: auto; /* Use original image width */
+	height: auto; /* Use original image height */
+	object-fit: none; /* Don't force scaling */
 }
 
 .strength-number {
@@ -102,21 +147,47 @@
 	flex-shrink: 0;
 }
 
-.strength-content { flex: 1; }
+.strength-content { 
+	flex: 1; 
+	position: relative;
+	z-index: 1;
+}
 
 .strength-title {
 	font-size: 24px;
 	font-weight: 700;
-	line-height: 2.08;
-	color: #203060;
+	line-height: 50px;
+	color: #ffffff;
 	margin-bottom: 20px;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .strength-description {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.5;
-	color: #203060;
+	color: #ffffff;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Second Strength Item */
+.strength-item-2 {
+	margin-top: 40px; /* Additional gap from the first strip */
+}
+
+/* Third Strength Item */
+.strength-item-3 {
+	margin-top: 40px; /* Additional gap from the second strip */
+}
+
+/* Fourth Strength Item */
+.strength-item-4 {
+	margin-top: 40px; /* Additional gap from the third strip */
+}
+
+/* Fifth Strength Item */
+.strength-item-5 {
+	margin-top: 40px; /* Additional gap from the fourth strip */
 }
 
 @media (max-width: 1024px) {

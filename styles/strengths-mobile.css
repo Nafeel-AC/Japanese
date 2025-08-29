@@ -1,0 +1,163 @@
+/* Strengths Section - Mobile Styles */
+/* This file contains mobile-specific styles that override desktop styles */
+
+@media (max-width: 768px) {
+    /* Mobile Layout Adjustments */
+    .strengths-row {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .strength-item {
+        flex-direction: row; /* Keep horizontal layout like desktop */
+        height: auto;
+        min-height: 180px;
+        padding: 25px 20px;
+        border-radius: 0 12px 12px 0; /* Keep left-side cut like desktop */
+        margin: 0; /* Remove side margins to extend to edges */
+        left: 0; /* Keep left positioning like desktop */
+        right: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-image: url('../images/mobile.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    
+    .strength-background {
+        display: none; /* Hide the original background div since we're using CSS background */
+    }
+    
+    .strength-bg {
+        display: none; /* Hide the original image since we're using CSS background */
+    }
+    
+    .strength-number {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+        margin-right: 20px;
+        flex-shrink: 0;
+        background-color: #2A93C5;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-weight: 700;
+    }
+    
+    .strength-content {
+        flex: 1;
+        text-align: center; /* Center text on mobile */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .strength-title {
+        font-size: 18px;
+        line-height: 1.4;
+        margin-bottom: 12px;
+        color: #ffffff;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .strength-description {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #ffffff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Logo Section Mobile Adjustments */
+    .strengths-logo {
+        position: static;
+        left: auto;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        order: -1; /* Move logo to top on mobile */
+    }
+    
+    .strengths-logo-main {
+        font-size: 48px;
+    }
+    
+    .strengths-logo-main span:nth-child(2),
+    .strengths-logo-main span:nth-child(4) {
+        font-size: 36px;
+    }
+    
+    .strengths-symbol {
+        width: 48px;
+        height: 56px;
+    }
+    
+    /* Header Mobile Adjustments */
+    .strengths-title {
+        font-size: 28px;
+        line-height: 1.3;
+        white-space: normal;
+        padding: 0 20px;
+    }
+    
+    .strengths-underline {
+        width: 80%;
+        max-width: 300px;
+    }
+    
+    .strengths-subtitle {
+        font-size: 14px;
+        line-height: 1.6;
+        white-space: normal;
+        padding: 0 20px;
+    }
+    
+    /* Spacing Adjustments for Mobile */
+    .strength-item-2,
+    .strength-item-3,
+    .strength-item-4,
+    .strength-item-5 {
+        margin-top: 20px; /* Reduce gap on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Small Mobile Adjustments */
+    .strength-item {
+        padding: 20px 15px;
+        min-height: 160px;
+    }
+    
+    .strength-number {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        margin-right: 15px;
+    }
+    
+    .strength-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .strength-description {
+        font-size: 13px;
+    }
+    
+    .strengths-title {
+        font-size: 24px;
+        padding: 0 15px;
+    }
+    
+    .strengths-subtitle {
+        font-size: 13px;
+        padding: 0 15px;
+    }
+}

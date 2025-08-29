@@ -1,9 +1,6 @@
 export function Worries() {
     return `
         <section class="worries">
-            <div class="worries-background">
-                <img src="images/worries-bg.png" alt="Worries Background" class="worries-bg">
-            </div>
             <div class="container">
                 <h2 class="section-title worries-title">こんなお悩みはありませんか？</h2>
                 <div class="worries-grid">
