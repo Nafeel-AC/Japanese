@@ -16,6 +16,7 @@
 
 html, body {
 	height: 100%;
+	overflow-x: hidden;
 }
 
 body {
@@ -81,6 +82,21 @@ body {
 section {
 	opacity: 1;
 	transform: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Ensure no spacing between sections */
+section + section {
+	margin-top: 0;
+}
+
+/* Prevent scroll-based transformations on all sections */
+section {
+	transform: none !important;
+	will-change: auto;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 /* Responsive shared */

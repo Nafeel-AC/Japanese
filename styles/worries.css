@@ -1,79 +1,606 @@
-/* Worries Section */
-.worries {
-	position: relative;
-	/* Removed padding and background to show full image */
-	margin-bottom: 100px; /* Add bottom margin to push next section down */
+/* Worries Section Styles */
+.problem-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    margin: 0;
+    margin-top: 0;
+    /* Prevent any scroll-based transformations */
+    transform: none !important;
+    will-change: auto;
 }
 
-.worries-title {
-	text-align: center;
-	margin: 40px 0 60px 0;
-	color: #ffffff; /* White text for contrast over image */
-	font-size: 32px;
-	font-weight: 700;
-	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Shadow for readability */
+.bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    max-width: 100%;
 }
 
-.worries-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	gap: 30px;
-	max-width: 1000px;
-	margin: 0 auto;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
-.worry-item {
-	display: flex;
-	align-items: flex-start;
-	gap: 20px;
-	background: #ffffff;
-	padding: 30px;
-	border-radius: 12px;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	transition: transform 0.3s ease;
+.content {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
-.worry-item:hover {
-	transform: translateY(-5px);
+.section-title {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.3;
+    text-align: center;
+    white-space: nowrap;
 }
 
-.worry-checkbox {
-	width: 18px;
-	height: 18px;
-	background-color: #FF9D00;
-	border-radius: 2px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	margin-top: 4px;
+.subtitle-text {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    color: #fff;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.checkbox-icon {
-	color: #ffffff;
-	font-size: 12px;
-	font-weight: bold;
+.subtitle-text i {
+    color: #f39c12;
+    font-size: 1.3rem;
+    flex-shrink: 0;
 }
 
-.worry-text {
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 1.36;
-	color: #203060;
+.problems {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    width: 800px;
+    text-align: left;
+}
+
+.problems ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    width: 45%;
+}
+
+.problems .left-column {
+    position: absolute;
+    left: -66%;
+    top: -40%;
+}
+
+.problems .right-column {
+    position: absolute;
+    right: 25%;
+    top: 0;
+}
+
+
+
+.problems li {
+    font-size: 1.2rem;
+    margin-bottom: 85px;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    line-height: 1.5;
+    font-family: 'Noto Sans JP', sans-serif;
+    justify-content: flex-start;
+}
+
+.problems li i {
+    color: #f39c12;
+    margin-right: 15px;
+    font-size: 1.3rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* Ensure no gap between hero and worries */
+.hero + .problem-section {
+    margin-top: 0 !important;
+}
+
+/* Prevent any scroll-based movement or spacing changes */
+.problem-section {
+    transform: none !important;
+    transition: none !important;
+}
+
+.problem-section * {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Desktop Layout */
+.mobile-problems {
+    display: none;
+}
+
+.left-column,
+.right-column {
+    display: block;
+}
+
+/* Responsive Design */
+
+/* Large Desktop (1200px and above) */
+@media (min-width: 1200px) {
+    .problems {
+        width: 900px;
+        gap: 100px;
+    }
+    
+    .section-title {
+        font-size: 2.8rem;
+    }
+    
+    .subtitle-text {
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra Large Desktop (1400px and above) */
+@media (min-width: 1400px) {
+    .problems {
+        width: 1000px;
+        gap: 120px;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .subtitle-text {
+        font-size: 1.4rem;
+    }
+}
+
+/* Standard Desktop (1024px - 1199px) */
+@media (max-width: 1199px) and (min-width: 1024px) {
+    .problems {
+        width: 800px;
+        gap: 80px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Small Desktop (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    
+    .problems {
+        width: 700px;
+        gap: 60px;
+    }
+    
+    .problems li {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    .subtitle-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Medium Desktop (825px - 1023px) - Fix distortion */
+@media (max-width: 1023px) and (min-width: 825px) {
+    .problems {
+        width: 750px;
+        gap: 70px;
+    }
+    
+    .problems .left-column {
+        left: -50%;
+    }
+    
+    .problems .right-column {
+        right: 20%;
+    }
+}
+
+/* Small Desktop (768px - 824px) - Switch to mobile layout */
+@media (max-width: 824px) and (min-width: 768px) {
+    .problem-section {
+        background: url('../images/backgroundimage nayami sp.png') no-repeat center center;
+        background-size: cover;
+    }
+    
+    .bg-img {
+        display: none;
+    }
+    
+    .overlay {
+        display: none !important;
+    }
+    
+    .section-title {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        text-align: center;
+        margin-top: 60px;
+    }
+    
+    .subtitle-text {
+        display: none !important;
+    }
+    
+    .problems {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+        margin-top: 300px;
+    }
+    
+    .problems ul {
+        width: 100%;
+    }
+    
+    .problems .left-column,
+    .problems .right-column {
+        display: none;
+    }
+    
+    .mobile-problems {
+        display: block !important;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .problems li {
+        background: transparent;
+        border: 4px solid #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+        justify-content: flex-start;
+        font-size: 1rem;
+        height: 80px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+    
+    .problems li i {
+        margin-right: 15px;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
 }
 
 @media (max-width: 768px) {
-	.worries-grid {
-		grid-template-columns: 1fr;
-		gap: 20px;
-	}
-	.worry-item {
-		padding: 20px;
-	}
+    .problem-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 60px 20px;
+        background: url('../images/backgroundimage nayami sp.png') no-repeat center center;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .bg-img {
+        display: none; /* Hide desktop background on mobile */
+    }
+    
+    .overlay {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        background-color: transparent !important;
+    }
+    
+    /* Ensure overlay is completely hidden on mobile */
+    .problem-section .overlay {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        background-color: transparent !important;
+        pointer-events: none !important;
+    }
+    
+    /* Hide desktop layout on mobile */
+    .left-column,
+    .right-column {
+        display: none;
+    }
+    
+    /* Show mobile layout */
+    .mobile-problems {
+        display: block !important;
+    }
+    
+    /* Hide subtitle text on mobile to prevent overlap */
+    .subtitle-text {
+        display: none !important;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        text-align: center;
+        margin-top: 60px;
+    }
+    
+
+    
+
+    
+    .problems {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        margin-top: 350px;
+    }
+    
+    .problems ul {
+        width: 100%;
+    }
+    
+    .problems .left-column,
+    .problems .right-column {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+    }
+    
+    .mobile-problems {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .problems li {
+        background: transparent;
+        border: 4px solid #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+        justify-content: flex-start;
+        font-size: 1rem;
+        height: 80px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+    
+    .problems li i {
+        margin-right: 15px;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
 }
 
 @media (max-width: 480px) {
-	.worry-text {
-		font-size: 18px;
-	}
+    .problem-section {
+        padding: 40px 15px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        margin-top: 40px;
+    }
+    
+    .problems {
+        max-width: 350px;
+        gap: 20px;
+        margin-top: 250px;
+    }
+    
+    .problems li {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+        padding: 15px;
+        height: 70px;
+    }
+    
+    .problems li i {
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+}
+
+/* Medium Mobile (481px - 600px) */
+@media (min-width: 481px) and (max-width: 600px) {
+    .problem-section {
+        padding: 50px 20px;
+    }
+    
+    .section-title {
+        font-size: 1.7rem;
+        margin-top: 50px;
+    }
+    
+    .problems {
+        max-width: 380px;
+        margin-top: 300px;
+    }
+    
+    .problems li {
+        font-size: 1rem;
+        height: 75px;
+    }
+}
+
+/* Large Mobile (601px - 767px) */
+@media (min-width: 601px) and (max-width: 767px) {
+    .problem-section {
+        padding: 55px 25px;
+    }
+    
+    .section-title {
+        font-size: 1.9rem;
+        margin-top: 60px;
+    }
+    
+    .problems {
+        max-width: 420px;
+        margin-top: 320px;
+    }
+    
+    .problems li {
+        font-size: 1.05rem;
+        height: 80px;
+    }
+}
+
+@media (max-width: 375px) {
+    .problem-section {
+        padding: 30px 10px;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+        margin-top: 30px;
+    }
+    
+    .problems {
+        max-width: 320px;
+        margin-top: 200px;
+    }
+    
+    .problems li {
+        font-size: 0.9rem;
+        padding: 12px;
+        height: 65px;
+        border-radius: 15px;
+    }
+    
+    .problems li i {
+        font-size: 0.9rem;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    .problem-section {
+        padding: 25px 8px;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+        margin-top: 20px;
+    }
+    
+    .problems {
+        max-width: 280px;
+        margin-top: 180px;
+    }
+    
+    .problems li {
+        font-size: 0.85rem;
+        padding: 10px;
+        height: 60px;
+        border-radius: 12px;
+    }
+    
+    .problems li i {
+        font-size: 0.8rem;
+        margin-right: 6px;
+    }
+}
+
+/* Animation */
+.problem-section.fade-in {
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Hover effects */
+.problems li:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+.problems li:hover i {
+    color: #ffa726;
+    transition: color 0.3s ease;
 }
