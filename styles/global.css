@@ -99,6 +99,14 @@ section {
 	overflow-x: hidden;
 }
 
+/* Ensure strengths section is always visible */
+.strengths {
+	opacity: 1 !important;
+	transform: none !important;
+	display: block !important;
+	visibility: visible !important;
+}
+
 /* Responsive shared */
 @media (max-width: 480px) {
 	.section-title {

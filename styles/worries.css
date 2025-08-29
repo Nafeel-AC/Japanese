@@ -110,7 +110,7 @@
 
 .problems .right-column {
     position: absolute;
-    right: 25%;
+    right: 32%;
     top: 0;
 }
 
@@ -177,6 +177,10 @@
     .subtitle-text {
         font-size: 1.3rem;
     }
+    
+    .problems .right-column {
+        right: 30%;
+    }
 }
 
 /* Extra Large Desktop (1400px and above) */
@@ -193,6 +197,10 @@
     .subtitle-text {
         font-size: 1.4rem;
     }
+    
+    .problems .right-column {
+        right: 28%;
+    }
 }
 
 /* Standard Desktop (1024px - 1199px) */
@@ -204,6 +212,10 @@
     
     .section-title {
         font-size: 2.5rem;
+    }
+    
+    .problems .right-column {
+        right: 30%;
     }
 }
 
@@ -227,6 +239,10 @@
     .subtitle-text {
         font-size: 1.1rem;
     }
+    
+    .problems .right-column {
+        right: 30%;
+    }
 }
 
 /* Medium Desktop (825px - 1023px) - Fix distortion */
@@ -241,7 +257,7 @@
     }
     
     .problems .right-column {
-        right: 20%;
+        right: 28%;
     }
 }
 

@@ -107,12 +107,6 @@
 	align-items: center;
 	flex: 1; /* Take remaining space */
 	overflow: hidden;
-	margin-left: 0; /* Ensure it starts from the left edge */
-	left: 0; /* Position to the left side */
-	/* Extend to full left edge since it's outside container */
-	position: relative;
-	left: 0;
-	right: 0;
 	margin: 0;
 	padding-left: 60px; /* Add left padding for content spacing */
 	padding-right: 60px; /* Add right padding for content spacing */
