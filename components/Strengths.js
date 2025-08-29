@@ -1,6 +1,6 @@
 export function Strengths() {
     return `
-        <section class="strengths">
+        <section class="strengths" id="strengths">
             <div class="container">
                 <div class="strengths-header">
                     <h2 class="strengths-title">
