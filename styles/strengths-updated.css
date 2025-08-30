@@ -27,7 +27,8 @@
 }
 
 .strength-number-inner {
-    left: 19px;
+    left: 3.7%;
+	top: -2%;
     width: 68px;
     height: 68px;
     background-color: #2A93C5;
@@ -94,6 +95,8 @@
 	margin: 0 auto 20px auto;
     position: absolute;
     right: 10px;
+	top: 26%;
+	right: 7%;
 }
 
 .strengths-logo-title {
@@ -146,7 +149,7 @@
 .strength-item {
 	display: flex;
 	gap: 40px;
-	padding: 40px;
+	/* padding: 40px; */
 	border-radius: 0 12px 12px 0; /* Remove left side rounded corners */
 	position: relative;
 	height: 241px;
@@ -154,7 +157,7 @@
 	flex: 1; /* Take remaining space */
 	overflow: hidden;
 	margin: 0;
-	padding-left: 60px; /* Add left padding for content spacing */
+	/* padding-left: 60px; Add left padding for content spacing */
 	padding-right: 60px; /* Add right padding for content spacing */
 }
 

@@ -10,12 +10,12 @@ export function Worries() {
                 </div>
                 <div class="problems">
                     <ul class="left-column">
-                        <li><i class="fas fa-check-circle"></i> M&Aの目的や投資基準が曖昧で動けない</li>
                         <li><i class="fas fa-check-circle"></i> 仲介から紹介される案件が希望に合わない</li>
+                        <li><i class="fas fa-check-circle"></i> 社内にM&Aの専任担当者がいない</li>
                     </ul>
                     <ul class="right-column">
-                        <li><i class="fas fa-check-circle"></i> 買収はしたが、その後のシナジー創出に悩んでいる</li>
-                        <li><i class="fas fa-check-circle"></i> 戦略も実行も、伴走してくれるパートナーが欲しい</li>
+                        <li><i class="fas fa-check-circle"></i> 買収はしたが、</br>その後のシナジー創出に悩んでいる</li>
+                        <li><i class="fas fa-check-circle"></i> 戦略も実行も、</br>伴走してくれるパートナーが欲しい</li>
                     </ul>
                     <ul class="mobile-problems">
                         <li><i class="fas fa-check-circle"></i> M&Aの目的や投資基準が曖昧で動けない</li>
